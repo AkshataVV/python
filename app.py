@@ -1,3 +1,4 @@
+from unittest import result
 from flask import Flask, jsonify
 
 app = Flask(__name__)
@@ -11,8 +12,14 @@ def cap3(sentence):
   z = list(sentence)
   for x in range(2, len(z),3):  
      z[x] = z[x].upper()
-  sentence = ''.join(z)
-  return sentence
+  cap3_string = ''.join(z)
+  result = {
+   
+    "cap3_string":cap3_string,
+    "string": sentence
+
+  }
+  return jsonify(result)
 
 if __name__ == "__main__":
   app.run(debug=True)
